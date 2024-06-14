@@ -34,7 +34,7 @@
 
 import { useDrag } from "react-dnd";
 
-const Task = ({ task }) => {
+const Task = ({ task , handleDelete }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'task',
         item: { id: task._id },
@@ -43,6 +43,7 @@ const Task = ({ task }) => {
         }),
     }));
 
+    
     return (
         <div
             ref={drag}
@@ -54,7 +55,7 @@ const Task = ({ task }) => {
                 <p>Priority: {task.priority}</p>
                 <p>{task.deadline}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Delete</button>
+                    <button onClick={() => handleDelete(task._id)} className="btn btn-primary">Delete</button>
                 </div>
             </div>
         </div>

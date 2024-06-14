@@ -1,52 +1,35 @@
-
-// import { useEffect, useState } from 'react';
-// import TaskItem from './TaskItem';
-
-// const TaskList = () => {
-//   // const [, ref] = useDrop({
-//   //   accept: 'TASK',
-//   //   drop: (item) => moveTask(item._id, status),
-//   // });
-
-// const [tasks, setTasks]=useState([]);
-//   useEffect(() => {
-//     fetch('http://localhost:5000/api/tasks')
-//       .then(response => response.json())
-//       .then(data => setTasks(data));
-//   }, []);
-
-//   console.log(tasks)
-
-//   return (
-//     <div className="border p-4 w-full">
-      
-//         <TaskItem setTasks={setTasks}  tasks={tasks} />
-    
-//     </div>
-//   );
-// };
-
-// export default TaskList;
-
-
 import { useEffect, useState } from 'react';
 import TaskItem from './TaskItem';
 
 const TaskList = () => {
-    const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/api/tasks')
-            .then(response => response.json())
-            .then(data => setTasks(data));
-    }, []);
+  useEffect(() => {
+    fetch('https://to-do-task-server-ochre.vercel.app/api/tasks')
+      .then(response => response.json())
+      .then(data => setTasks(data));
+  }, []);
 
-    return (
-        <div className="border p-4 w-full">
-            <TaskItem setTasks={setTasks} tasks={tasks} />
-        </div>
-    );
+  const handleDelete = async (taskId) => {
+    try {
+      const response = await fetch(`https://to-do-task-server-ochre.vercel.app/api/tasks/${taskId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setTasks(tasks.filter(task => task._id !== taskId));
+      } else {
+        console.error('Failed to delete task');
+      }
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
+  };
+
+  return (
+    <div className="border p-4 w-full">
+      <TaskItem tasks={tasks} setTasks={setTasks} onDelete={handleDelete} />
+    </div>
+  );
 };
 
 export default TaskList;
-

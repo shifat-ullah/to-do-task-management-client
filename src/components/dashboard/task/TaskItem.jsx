@@ -67,6 +67,8 @@ const TaskItem = ({ tasks, setTasks }) => {
         setCompleted(fCompleted);
     }, [tasks]);
 
+    
+
     const statuses = ['todo', 'ongoing', 'completed'];
 
     return (

@@ -18,7 +18,7 @@ const TaskForm = ({ addTask }) => {
     };
 
     console.log(taskInfo)
-    fetch('http://localhost:5000/api/tasks', {
+    fetch('https://to-do-task-server-ochre.vercel.app/api/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -30,7 +30,7 @@ const Sidebar = () => {
             <div className='bg-gray-100 text-gray-800 flex justify-between md:hidden'>
                 <div>
                     <div className='block cursor-pointer p-4 font-bold'>
-                        <img src={logo} alt="" />
+                    <Link to='/'> <img src={logo} alt="" /></Link>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@ const Sidebar = () => {
                     {/* Branding & Profile Info */}
                     <div>
                         <div className='w-full hidden md:flex py-2 justify-center items-center bg-rose-100 mx-auto'>
-                            <img src={logo} alt="" />
+                           <Link to='/'> <img src={logo} alt="" /></Link>
                         </div>
                         <div className='flex flex-col items-center mt-6 -mx-2'>
                             <Link to='/dashboard'>

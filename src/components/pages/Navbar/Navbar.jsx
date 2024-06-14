@@ -1,4 +1,4 @@
-import {  NavLink } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 
 import { FaSignInAlt } from 'react-icons/fa';
 import logo from '../../../assets/logo.png';
@@ -38,8 +38,8 @@ const Navbar = () => {
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><NavLink to="/" activeClassName="active-link">Home</NavLink></li>
-                            <li><NavLink to="/about" activeClassName="active-link">About</NavLink></li>
-                            <li><NavLink to="/feature" activeClassName="active-link">Features</NavLink></li>
+    
+                            <li><NavLink to="/blog" activeClassName="active-link">Blog</NavLink></li>
                             <li><NavLink to="/Contact" activeClassName="active-link" className="nav-link">Contact</NavLink></li>
                         </ul>
                     </div>
@@ -51,8 +51,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu text-xl menu-horizontal px-1">
                         <li><NavLink exact to="/" activeClassName="active-link" className="nav-link">Home</NavLink></li>
-                        <li><NavLink to="/about" activeClassName="active-link" className="nav-link">About</NavLink></li>
-                        <li><NavLink to="/feature" activeClassName="active-link" className="nav-link">Feature</NavLink></li>
+                        <li><NavLink to="/blog" activeClassName="active-link" className="nav-link">Blog</NavLink></li>
                         <li><NavLink to="/Contact" activeClassName="active-link" className="nav-link">Contact</NavLink></li>
                     </ul>
                 </div>
